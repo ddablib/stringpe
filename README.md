@@ -1,394 +1,78 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--
- * This Source Code Form is subject to the terms of the Mozilla Public License,
- * v. 2.0. If a copy of the MPL was not distributed with this file, You can
- * obtain one at http://mozilla.org/MPL/2.0/
- *
- * Copyright (C) 2005-2013, Peter Johnson (www.delphidabbler.com).
- *
- * Read-me file for Extended String Property Editor
--->
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+# Extended String Property Editor
 
-<head>
+## Description
 
-  <title>
-    DelphiDabbler Extended String Property Editor ReadMe
-  </title>
+This enhanced property editor has been designed to get round two limitations of the standard Delphi string property editor.
 
-  <style type="text/css">
-    body {
-      margin: 1em;
-      padding: 0;
-      font-family: Verdana, Arial, sans-serif;
-      font-size: 9pt;
-      line-height: 150%;
-    }
-    h1 {
-      margin: 0 0 1em 0;
-      padding: 0.5em;
-      border: 1px silver solid;
-      background-color: #eee;
-      font-size: 13pt;
-      font-weight: bold;
-      text-align: center;
-    }
-    h1 .subtitle {
-      font-style: italic;
-      color: #336;
-    }
-    h2 {
-      margin: 1em 0 0 0;
-      padding: 0;
-      padding-bottom: 6px;
-      border-bottom: 1px silver solid;
-      font-size: 11pt;
-      font-weight: bold;
-    }
-    h3 {
-      margin: 0.5em 0 0 0;
-      padding: 0;
-      font-size: 9pt;
-      font-weight: bold;
-    }
-    p {
-      margin: 0.5em 0 0 0;
-      padding: 0;
-    }
-    ul, ol {
-      margin: 0.5em 0 0 3em;
-      padding: 0;
-    }
-    ul {
-      list-style-type: square;
-    }
-    ul.spaced li,
-    ol.spaced li {
-      margin-top: 0.5em;
-    }
-    ul.spaced li,
-    ol.spaced li {
-      margin-top: 0.5em;
-    }
-    ul.unspaced li,
-    ol.unspaced li {
-      margin-top: 0;
-    }
-    ul.unspaced li.first,
-    ol.unspaced li.first {
-      margin-top: 0.5em;
-    }
-    code {
-      font-family: "Courier New", Courier, monospace;
-    }
-    a:link {
-      color: #336;
-      text-decoration: underline;
-    }
-    a:visited {
-      color: #669;
-      text-decoration: underline;
-    }
-    a:active {
-      color: #336;
-      text-decoration: underline;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .pullout {
-      border-left: 8px silver solid;
-      background-color: #eee;
-      margin: 0.5em 0 0 0;
-      padding: 0.25em 0.5em;
-      font-style: italic;
-    }
-    .indent {
-      margin-left: 3em;
-    }
-    .highlight {
-      color: #336;
-      font-style: italic;
-      font-weight: bold;
-    }
-    .endnotes {
-      margin: 1.5em 0 0 0;
-      padding: 1em 0 0 0;
-      border-top: 1px silver solid;
-    }
-    .comments {
-      font-style: italic;
-    }
-    .copyright,
-    .copyright a:link,
-    .copyright a:visited,
-    .copyright a:active {
-      margin: 1em 0 0 0;
-      color: gray;
-      font-size: 8pt;
-      text-align: right;
-    }
-    .smallcaps {
-      font-variant: small-caps;
-    }
-  </style>
+1. The standard property editor does not allow multi-line strings with embedded CR/LF characters to be entered via the object inspector. Such strings can only be assigned at run-time.
+2. Although long Delphi strings have a 2Gb size limit, the standard property editor only accepts strings up to 255 characters long. Once again, longer strings must be assigned at run-time.
 
-</head>
+The property editor works with all properties of type **string** or _TCaption_ of all components. It adds an ellipsis button to the right hand side of the data entry area in the object inspector. Clicking this button displays a dialogue box in which the property's value can be entered. Pressing return in the dialogue box starts a new line. There is no practical limit to the length of strings that can be entered.
 
-<body>
+Clicking _OK_ (or pressing Ctrl+Return) causes the entered text to be assigned to the property. If, or how, any newline characters will be displayed in the object inspector depends on the version of Delphi being used.
 
+The edit dialogue is resizeable. Word wrapping can be switched on or off. Both the word-wrapping and dialogue box size and position are persistent. The dialogue box has a toolbar that provides buttons to:
 
-<h1>
-  Extended String Property Editor<br />
-  <span class="subtitle">ReadMe</span>
-</h1>
+* Select all the text in the editor.
+* Clear all the text from the editor.
+* Overwrite the editor's existing text with text from the clipboard.
+* Copy all the text from the editor to the clipboard.
+* Undo the last edit.
+* Load text into the editor from a file.
+* Save the contents of the editor to a file.
+* Display online help.
 
+In addition the normal cut, copy and paste operations are available via a context menu and the usual keyboard short-cuts.
 
-<h2 id="description">
-  Description
-</h2>
+## Compatibility
 
-<p>
-  This enhanced property editor has been designed to get round two limitations
-  of the standard Delphi string property editor.
-</p>
+The property editor is reported to compile and work with all versions of Delphi from Delphi 6 onwards, except the .NET versions.
 
-<ol class="spaced">
-  <li>
-    The standard property editor does not allow multi-line strings with embedded
-    CR/LF characters to be entered via the object inspector. Such strings can
-    only be assigned at run-time.
-  </li>
-  <li>
-    Although long Delphi strings have a 2Gb size limit, the standard property
-    editor only accepts strings up to 255 characters long. Once again, longer
-    strings must be assigned at run-time.
-  </li>
-</ol>
+## Installation
 
-<p>
-  The property editor works with all properties of type <strong>string</strong>
-  or <var>TCaption</var> of all components. It adds an ellipsis button to the
-  right hand side of the data entry area in the object inspector. Clicking this
-  button displays a dialogue box in which the property's value can be entered.
-  Pressing return in the dialogue box starts a new line. There is no practical
-  limit to the length of strings that can be entered.
-</p>
+The _Extended String Property Editor_ is supplied in a zip file. Before installing you need to extract all the files from the zip file. The following files will be extracted:
 
-<p>
-  Clicking OK (or pressing <span class="smallcaps">Ctrl+Return</span>) causes
-  the entered text to be assigned to the property. If, or how, any newline
-  characters will be displayed in the object inspector depends on the version
-  of Delphi being used.
-</p>
+* **`PJStringPE.pas`** – Property editor source code.
+* **`PJStringPE.dfm`** – Property editor form file.
+* `README.md` – This read-me file.
+* `CHANGELOG.md` – Change log.
+* `MPL-2.txt` – Mozilla Public License v2.0.
+* `DocumentationWiki.URL` – Internet short-cut to online property editor documentation.
 
-<p>
-  The edit dialogue is resizeable. Word wrapping can be switched on or off. Both
-  the word-wrapping and dialogue box size and position are persistent. The
-  dialogue box has a toolbar that provides buttons to:
-</p>
+`PJStringPE.pas` and `PJStringPE.dfm` must be included in a design time package that is then installed into the IDE. If you need help doing this [see here](https://delphidabbler.com/url/install-comp).
 
-<ul>
-  <li>
-    Select all the text in the editor.
-  </li>
-  <li>
-    Clear all the text from the editor.
-  </li>
-  <li>
-    Overwrite the editor's existing text with text from the clipboard.
-  </li>
-  <li>
-    Copy all the text from the editor to the clipboard.
-  </li>
-  <li>
-    Undo the last edit.
-  </li>
-  <li>
-    Load text into the editor from a file.
-  </li>
-  <li>
-    Save the contents of the editor to a file.
-  </li>
-  <li>
-    Display online help.
-  </li>
-</ul>
+> **Note:** you must ensure the package containing the property editor includes the _DesignIDE_ package in its **requires** clause.
 
-<p>
-  In addition the normal cut, copy and paste operations are available via a
-  context menu and the usual keyboard short-cuts.
-</p>
+## Update History
 
+A complete change log is provided in [`CHANGELOG.md`](https://github.com/ddablib/stringpe/blob/main/CHANGELOG.md) that is included in the download.
 
-<h2 id="compatibility">
-  Compatibility
-</h2>
+## License and Credits
 
-<p>
-  The property editor is reported to compile and work with all Win 32 version of
-  Delphi from Delphi 6 onwards.
-</p>
+These components are released under the terms of the [Mozilla Public License v2.0](https://www.mozilla.org/MPL/2.0/).
 
+Thanks to the following who have contributed to this project:
 
-<h2 id="installation">
-  Installation
-</h2>
+* Richard C Haven
+* Bino
 
-<p>
-  The <em>Extended String Property Editor</em> is supplied in a zip file. Before
-  installing you need to extract all the files from the zip file. The following
-  files will be extracted:
-</p>
+All relevant trademarks are acknowledged.
 
-<ul>
-  <li>
-    <strong><code>PJStringPE.pas</code></strong> &ndash; Property editor source
-    code.
-  </li>
-  <li>
-    <strong><code>PJStringPE.dfm</code></strong> &ndash; Property editor form
-    file.
-  </li>
-  <li>
-    <code>ReadMe.htm</code> &ndash; This read-me file.
-  </li>
-  <li>
-    <code>ChangeLog.txt</code> &ndash; Change log.
-  </li>
-  <li>
-    <code>MPL-2.txt</code> &ndash; Mozilla Public License v2.0.
-  </li>
-  <li>
-    <code>DocumentationWiki.URL</code> &ndash; Internet short-cut to online
-    property editor documentation.
-  </li>
-</ul>
+## Acknowledgements
 
-<p>
-  <code>PJStringPE.pas</code> and <code>PJStringPE.dfm</code> must be included
-  in a design time package that is then installed into the IDE. If you need help
-  doing this <a
-    href="http://www.delphidabbler.com/url/install-comp"
-  >see here</a>.
-</p>
+The property editor uses or adapts icons from the following collections:
 
-<p>
-  <strong>Note:</strong> you must ensure the package containing the property
-  editor includes the <em>DesignIDE</em> package in its
-  <strong>requires</strong> clause.
-</p>
+* The 16×16 Free Application Icons packs by [Aha-soft](http://www.aha-soft.com/), licensed under a Creative Commons Attribution-Share Alike 3.0 license.
+* The Free Pixelbox icon sets from [Icojam](https://www.icojam.com/), free to use in any kind of commercial or non-commercial project.
 
+## Bugs and Feature Requests
 
-<h2 id="update">
-  Update History
-</h2>
+Bugs can be reported or new features requested via the project's [Issue Tracker](https://github.com/ddablib/stringpe/issues). A GitHub account is required.
 
-<p>
-   A complete change log is provided in the file <code>ChangeLog.txt</code>.
-</p>
+Please check if an issue has already been created for a similar report or request. If so then please add a comment containing as much information as you can to the existing issue, or if you've nothing to add, just add a :+1: (`:+1:`) comment. If there is no suitable existing issue then please add a new issue and give as much information as possible.
 
+## About the Author
 
-<h2 id="license">
-  License and Credits
-</h2>
+I'm Peter Johnson – a hobbyist programmer living in Ceredigion in West Wales, UK, writing mainly in Delphi. My programs and other library code are available from: [https://delphidabbler.com/](https://delphidabbler.com/).
 
-<p>
-  These components are released under the terms of the <a
-    href="http://www.mozilla.org/MPL/2.0/"
-  >Mozilla Public License v2.0</a>.
-</p>
-
-<p>
-  Thanks to the following who have contributed to this project:
-</p>
-
-<p class="indent">
-  Richard C Haven<br />
-  Bino
-</p>
-
-<p>
-  All relevant trademarks are acknowledged.
-</p>
-
-
-<h2>
-  Acknowledgements
-</h2>
-
-<p>
-  The property editor uses or adapts icons from the following collections:
-</p>
-
-<ul>
-  <li>
-    The 16&times;16 Free Application Icons packs by <a
-      href="http://www.aha-soft.com/"
-    >Aha-soft</a>, licensed under a Creative Commons Attribution-Share Alike 3.0
-    license.
-  </li>
-  <li>
-    The Free Pixelbox icon sets from <a
-      href="http://www.icojam.com/"
-    >Icojam</a>, free to use in any kind of commercial or non-commercial
-    project.
-  </li>
-</ul>
-
-
-<h2 id="bugs">
-  Bugs and Feature Requests
-</h2>
-
-<p>
-  Bugs can be reported or new features requested via the <a
-    href="http://www.delphidabbler.com/url/ddlib-issues"
-  >Issue Tracker</a>.
-</p>
-
-<p>
-  If no similar report or request has been recorded already, use the <em>New
-  Issue</em> link to add a new issue. Please select the most appropriate
-  template from the <em>Templates</em> drop down list and change the
-  <code>Project-unspecified</code> label to <code>Project-stringpe</code>.
-</p>
-
-
-<h2 id="author">
-  About the Author
-</h2>
-
-<p>
-  I'm Peter Johnson &ndash; a hobbyist programmer living in Ceredigion in West
-  Wales, UK, writing write mainly in Delphi. My programs and code are available
-  from: <a
-    href="http://www.delphidabbler.com/"
-  >http://www.delphidabbler.com/</a>.
-</p>
-
-<p>
-  I can be <a
-    href="http://www.delphidabbler.com/contact"
-  >contacted via the website</a>.
-</p>
-
-
-<div class="endnotes">
-  <div class="comments">
-    Please <a
-      href="http://www.delphidabbler.com/contact"
-    >let me know</a> if you have any comments about the property editor, but
-    please use the Issue Tracker above to report bugs and request new features.
-  </div>
-  <div class="copyright">
-    This document is copyright &copy; 2005-2013, P D Johnson, <a
-      href="http://www.delphidabbler.com/"
-    >www.delphidabbler.com</a>.
-  </div>
-</div>
-
-</body>
-
-</html>
+This document is copyright © 2005-2022, [P D Johnson](https://gravatar.com/delphidabbler).
