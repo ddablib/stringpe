@@ -1,0 +1,72 @@
+# Change Log for Extended String Property Editor
+
+## v2.0.3 of 12 January 2014
+
++ Fixed problem with compiler directives in property editor unit that was causing compilation to fail on Delphi XE5.
++ Minor corrections to read-me file.
+
+## v2.0.2 of 01 November 2013
+
++ Fixed issue ~~#28~~ where window settings were not persistent (registry read code was in error).
++ Fixed registry access to work correctly with 64 bit registry view on 64 bit Windows.
++ Changed some defined symbol names to camel case.
++ Minor documentation changes.
+
+## v2.0.1 of 08 January 2013
+
++ Property editor source modified to compile without warnings on Delphi XE3.
++ Unit names are now qualified with name-space on Delphi XE2 and later.
++ Revised property editor user interface:
+  + Font and appearance of some controls changed.
+  + All form files now in text format.
+  + Form is no longer scaled.
+  + Controls rearranged.
++ Support for old style design units removed: now requires Delphi 6 as a minimum.
++ Component source license changed to Mozilla Public License v2.0.
++ MPL text file updated to MPL v2.0 and renamed.
++ Updated documentation.
+
+## v2.0 of 21 July 2011
+
++ Added several new commands to editor dialogue box:
+  + "copy all" copies all text from editor to clipboard.
+  + "paste over" replaces text in editor with text on clipboard.
+  + "select all" selects all text in editor.
+  + "clear" deletes all text from editor.
+  + "undo" undoes last edit.
+  + "help" displays online documentation for property editor.
++ Revised user interface:
+  + Added toolbar at top of window with buttons for all commands.
+  + Added to keyboard short-cuts for toolbar buttons.
+  + Removed former Load and Save buttons from bottom of window: now replaced by toolbar buttons.
+  + Repositioned "word wrap" check box.
+  + Constrained minimum size of window so all controls remain accessible.
+  + Now uses Vista or XP default fonts if available.
++ Unit now commented for use with XMLDoc.
++ Updated documentation.
++ Provided short-cut file that links to online documentation wiki.
+
+## v1.2 of 05 January 2010
+
++ Changed property editor form:
+  + Removed bevel from around memo control.
+  + Re-arranged controls so that dialogue appears correctly on Vista and later Delphis.
+  + Pressing ESC along with any modifier key no longer cancels the dialogue.
++ Made minor changes to code that stores settings in registry.
++ Simplified compiler directives.
++ Switched off unsafe code warnings on Delphi 7 and later.
++ Updated documentation.
++ Included MPL license in release.
+
+## v1.1.1 of 21 December 2005
+
++ Changed compiler directives to allow compilation with Delphi 2005/6.
+
+## v1.1 of 12 August 2004
+
++ Disabled minimize button and system menu item.
++ Made form respond to Esc key to cancel dialogue and Ctrl+Return to OK the dialogue.
+
+## v1.0 of 30 June 2004
+
++ Original version.

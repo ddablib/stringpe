@@ -10,4 +10,4 @@ flattened image as a .pdn file. Finally replace the appropriate image in the
 property editor's image list.
 
 All these images are derived from originals taken from third party icon sets.
-See Docs\ReadMe.htm for licensing details.
+See README.md for licensing details.
